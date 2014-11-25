@@ -1,0 +1,18 @@
+<launch>
+
+	<!-- start camera driver -->
+	<node pkg="usb_cam" type="usb_cam_node" name="camera_node" output="screen">
+		<param name="video_device" type="string" value="/dev/video0"/>
+		<param name="pixel_format" type="string" value="yuyv"/>
+		<param name="name" type="string" value="tracker_camera	"/>
+	</node>
+
+	<node pkg="tracking_control" type="camera_image_viewer.py" name="image_viewer" output="screen">
+	</node>
+
+	<node pkg="tracking_control" type="servoControl.py" name="servo_mover" output="screen">
+	</node>
+
+		
+
+</launch> 
